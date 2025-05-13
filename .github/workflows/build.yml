@@ -35,4 +35,15 @@ jobs:
           folder: .
           branch: gh-pages
           clean: true
-          token: ${{ secrets.GITHUB_TOKEN }} 
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Commit PDF to main branch
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'github-actions@github.com'
+          # Remove existing PDF if it exists
+          git rm -f resume.pdf || true
+          # Add the new PDF
+          git add resume.pdf
+          git commit -m "Update resume PDF" || echo "No changes to commit"
+          git push 
