@@ -25,6 +25,20 @@ jobs:
             tlmgr install fontawesome5
           compiler: xelatex
           
+      - name: Debug - Check PDF
+        run: |
+          echo "Current directory: $(pwd)"
+          echo "Listing all files:"
+          ls -la
+          echo "PDF file details:"
+          ls -l resume.pdf || echo "PDF not found"
+          echo "PDF file size:"
+          stat -f %z resume.pdf || echo "Cannot get file size"
+          
+      - name: Copy PDF to workspace
+        run: |
+          cp resume.pdf $GITHUB_WORKSPACE/resume.pdf
+          
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
