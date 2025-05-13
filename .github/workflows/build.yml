@@ -41,9 +41,15 @@ jobs:
         run: |
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'github-actions@github.com'
-          # Remove existing PDF if it exists
-          git rm -f resume.pdf || true
-          # Add the new PDF
-          git add resume.pdf
-          git commit -m "Update resume PDF" || echo "No changes to commit"
-          git push 
+          # Check if PDF exists
+          if [ -f resume.pdf ]; then
+            # Remove existing PDF if it exists in the repository
+            git rm -f resume.pdf || true
+            # Add the new PDF
+            git add resume.pdf
+            git commit -m "Update resume PDF"
+            git push
+          else
+            echo "Error: resume.pdf was not generated"
+            exit 1
+          fi 
