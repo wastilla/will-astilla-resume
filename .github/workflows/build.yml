@@ -35,10 +35,6 @@ jobs:
           echo "PDF file size:"
           stat -f %z resume.pdf || echo "Cannot get file size"
           
-      - name: Copy PDF to workspace
-        run: |
-          cp resume.pdf $GITHUB_WORKSPACE/resume.pdf
-          
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
@@ -61,7 +57,11 @@ jobs:
           cd $GITHUB_WORKSPACE
           # Configure git
           git config --global push.autoSetupRemote true
-          # Add the new PDF
-          git add resume.pdf
-          git commit -m "Update resume PDF" || echo "No changes to commit"
-          git push origin main 
+          # Force add the PDF
+          git add -f resume.pdf
+          # Check if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update resume PDF"
+            git push origin main 
