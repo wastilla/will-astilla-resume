@@ -64,4 +64,5 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "Update resume PDF"
-            git push origin main 
+            git push origin main
+          fi 
