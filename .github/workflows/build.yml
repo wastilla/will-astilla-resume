@@ -57,8 +57,12 @@ jobs:
           cd $GITHUB_WORKSPACE
           # Configure git
           git config --global push.autoSetupRemote true
+          # Force git to forget about the file
+          git rm --cached resume.pdf || true
           # Force add the PDF
           git add -f resume.pdf
+          # Force git to update its index
+          git update-index --no-assume-unchanged resume.pdf
           # Check if there are changes
           if git diff --staged --quiet; then
             echo "No changes to commit"
