@@ -27,11 +27,16 @@ jobs:
 
       - name: Check PDF Generation
         run: |
-            if [ ! -s resume.pdf ]; then
-              echo "PDF was not generated or is empty. Printing LaTeX log:"
-              tail -40 resume.log || true
-              exit 1
+          if [ ! -s resume.pdf ]; then
+            echo "PDF was not generated or is empty."
+            if [ -f resume.log ]; then
+              echo "Printing LaTeX log:"
+              tail -40 resume.log
+            else
+              echo "No LaTeX log file found."
             fi
+            exit 1
+          fi
           
       - name: Debug - Check PDF
         run: |
@@ -78,3 +83,10 @@ jobs:
             git commit -m "Update resume PDF"
             git push origin main
           fi 
+      - name: List all files after build
+        run: |
+          echo "Files after build:"
+          ls -l
+      - name: Output any log files
+        run: |
+          find . -name '*.log' -exec echo "---- {} ----" \; -exec cat {} \; 
