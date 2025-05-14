@@ -24,6 +24,14 @@ jobs:
           pre_compile: |
             tlmgr install fontawesome5
           compiler: xelatex
+
+      - name: Check PDF Generation
+        run: |
+            if [ ! -s resume.pdf ]; then
+              echo "PDF was not generated or is empty. Printing LaTeX log:"
+              tail -40 resume.log || true
+              exit 1
+            fi
           
       - name: Debug - Check PDF
         run: |
