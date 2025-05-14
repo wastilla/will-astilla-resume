@@ -17,12 +17,15 @@ jobs:
         with:
           fetch-depth: 0
       
-      - name: Build PDF (manual)
-        run: |
-          tlmgr install fontawesome5
-          xelatex -interaction=nonstopmode resume.tex || true
-          ls -l
-          cat resume.log || echo "No log file"
+      - name: Build PDF and show log on failure
+        uses: xu-cheng/texlive-action@v2
+        with:
+          root_file: resume.tex
+          pre_compile: |
+            tlmgr install fontawesome5
+          compiler: xelatex
+          script: |
+            xelatex -interaction=nonstopmode resume.tex || (echo "===== LATEX LOG =====" && cat resume.log && exit 1)
 
       - name: Check PDF Generation
         run: |
