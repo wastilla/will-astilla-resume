@@ -1,6 +1,5 @@
 %-------------------------
-% Based on: https://github.com/sb2nov/resume
-% Shoutout to jake 
+% William Astilla Resume
 %-------------------------
 
 \documentclass[letterpaper,11pt]{article}
@@ -60,13 +59,6 @@
     \end{tabular*}\vspace{-7pt}
 }
 
-\newcommand{\resumeSubSubheading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
-}
-
 \newcommand{\resumeProjectHeading}[2]{
     \item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
@@ -86,63 +78,80 @@
 %-------------------------------------------
 %%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \begin{document}
 
 %----------HEADING----------
 \begin{center}
-    \textbf{\Huge \scshape Your Name} \\ \vspace{3pt}
+    {\Huge \scshape William Astilla} \\ \vspace{2pt}
     \small
-    \faMobile \hspace{.5pt} \href{tel:+1234567890}{123-456-7890} $|$ 
-    \faEnvelope \hspace{.5pt} \href{mailto:your.email@example.com}{your.email@example.com} $|$ 
-    \faGithub \hspace{.5pt} \href{https://github.com/yourusername}{github.com/yourusername} $|$ 
-    \faLinkedin \hspace{.5pt} \href{https://linkedin.com/in/yourusername}{linkedin.com/in/yourusername} $|$ 
-    \faMapMarker \hspace{.5pt} Your Location
+    (919) 210-2351 $|$ \href{mailto:williamastilla@gmail.com}{williamastilla@gmail.com} $|$ \href{https://www.willastilla.com}{www.willastilla.com} $|$ \href{https://www.linkedin.com/in/willastilla}{LinkedIn}
 \end{center}
 
 %-----------EDUCATION-----------
 \section{Education}
   \resumeSubHeadingListStart
     \resumeSubheading
-      {University Name}{City, State}
-      {Degree in Major}{Expected Graduation: Month Year}
-      \resumeItemListStart
-        \resumeItem{Relevant Coursework: Course 1, Course 2, Course 3}
-        \resumeItem{GPA: X.XX/4.00}
-      \resumeItemListEnd
+      {University of North Carolina at Chapel Hill}{May 2024}
+      {Computer Science (BA); Entrepreneurship minor}{\textit{GPA: 3.86}}
   \resumeSubHeadingListEnd
 
 %-----------EXPERIENCE-----------
 \section{Experience}
   \resumeSubHeadingListStart
     \resumeSubheading
-      {Company Name}{City, State}
-      {Job Title}{Month Year - Present}
+      {iOS Engineer $|$ \href{https://walmart.com}{Walmart Global Tech}}{July 2024--Present}
+      {}{}
       \resumeItemListStart
-        \resumeItem{Key achievement or responsibility 1}
-        \resumeItem{Key achievement or responsibility 2}
-        \resumeItem{Key achievement or responsibility 3}
+        \resumeItem{Collaborate with a team of iOS developers to build and design features for Walmart Pay: Walmart's touch-free payment service, adhering to agile development practices and meeting tight deadlines}
+        \resumeItem{Spearhead redesign of internal testing features for Walmart Pay functionality using Swift, UIKit, Combine, GraphQL, Apollo, and MVVM+C architecture}
+        \resumeItem{Implement and deploy new flow and UI changes for Walmart Pay's 22 million monthly users}
+        \resumeItem{Participate in the full development lifecycle, including design, development, testing, and deployment}
+      \resumeItemListEnd
+    \resumeSubheading
+      {iOS Engineer/CMO $|$ \href{https://appteamcarolina.com}{App Team Carolina}}{Jan 2022--May 2024}
+      {}{}
+      \resumeItemListStart
+        \resumeItem{Work with a team of developers, product managers, and designers to create an iOS application for a client aiming to make navigating UNC's campus more accessible for those with mobility limitations}
+        \resumeItem{Build user-facing features of application using Swift, SwiftUI, MapKit and UIKit}
+        \resumeItem{Ensure use of industry best practices including MVVM architecture, unit testing, and team collaboration using Git and GitHub}
+        \resumeItem{Lead all marketing and external relationship efforts of the organization and manage a team of 5}
       \resumeItemListEnd
   \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------
 \section{Projects}
   \resumeSubHeadingListStart
-    \resumeProjectHeading
-      {\textbf{Project Name} $|$ \emph{Technologies Used}}{Month Year}
+    \resumeProjectHeading{AuxJelly (Swift, SwiftUI, ShazamKit)}{}
       \resumeItemListStart
-        \resumeItem{Project description and key achievements}
-        \resumeItem{Technical details and implementation highlights}
+        \resumeItem{Develop iOS app using ShazamKit and Spotify's API allowing users to identify songs and generate a playlist of similar songs}
+        \resumeItem{Implement PKCE flow for OAuth 2.0 to enhance the security of our app's authentication process when integrating with Spotify's API, protecting user data from authorization code interception attacks}
+        \resumeItem{Design and implement UI using SwiftUI}
+      \resumeItemListEnd
+    \resumeProjectHeading{Computer Vision Clock (Raspberry Pi, Python, OpenCV)}{}
+      \resumeItemListStart
+        \resumeItem{BEAM Makerfest 2023 Winner: Best Overall Project}
+        \resumeItem{Collaborate with a team of developers to develop a clock employing facial recognition to identify specific individuals and display a later time to help them get out of the door quicker}
+        \resumeItem{Utilize Raspberry Pi as hardware platform and Python, OpenCV, and Tkinter to control the clock's functionalities including facial recognition, time calculation, and GUI}
+      \resumeItemListEnd
+    \resumeProjectHeading{CSXL Forum Website (Angular, PostGresQL, FastAPI, SQLAlchemy)}{}
+      \resumeItemListStart
+        \resumeItem{Design and develop an interactive forum for the computer science experience lab (CSXL) at UNC}
+        \resumeItem{Implement role-based access control for administrators, moderators, and users}
+        \resumeItem{Architect backend database using SQLAlchemy and implement data persistence with PostgreSQL}
+      \resumeItemListEnd
+    \resumeProjectHeading{Roadio (Swift, SwiftUI, Python)}{}
+      \resumeItemListStart
+        \resumeItem{HackNC 2022 Winner: Best User Experience}
+        \resumeItem{Develop front-end of iOS application for road-trip cost analysis using Swift and SwiftUI}
       \resumeItemListEnd
   \resumeSubHeadingListEnd
 
 %-----------SKILLS-----------
-\section{Skills}
+\section{Technologies and Languages}
   \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-      \textbf{Languages}{: Language 1, Language 2, Language 3} \\
-      \textbf{Technologies}{: Technology 1, Technology 2, Technology 3} \\
-      \textbf{Soft Skills}{: Skill 1, Skill 2, Skill 3}
+      \textbf{Languages}{: Swift, Python, JavaScript, Java, SQL, HTML, CSS, Typescript} \\
+      \textbf{Technologies}{: SwiftUI, Xcode, UIKit, Combine, XCTest, Git, GitHub, ReactJS, AngularTS, PostgreSQL, FastAPI, Charles Proxy, Jira, Trello, VSCode, IntelliJ, three.js}
     }}
   \end{itemize}
 
